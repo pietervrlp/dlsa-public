@@ -21,7 +21,7 @@ def run_ipca():
     RiskFreeData = pd.read_csv('data/F-F_Research_Data_Factors_daily.CSV')
     RFs = RiskFreeData.loc[(RiskFreeData['Date'] > 19630000) & (RiskFreeData['Date'] < 20170000),['RF']].to_numpy() / 100
     logging.info("Preprocessing monthly characteristics data")
-    preprocessDailyReturns(MonthlyData, logdir='data')
+    preprocessMonthlyData(MonthlyData, logdir='data')
     logging.info("Preprocessing daily returns")
     preprocessDailyReturns(DailyData, RFs, logdir='data')
     logging.info("Initializing IPCA factor model")
